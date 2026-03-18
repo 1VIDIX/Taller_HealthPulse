@@ -8,7 +8,7 @@ En caso tal que el modulo de signos vitales se vuelve grande y toca migrarlo, en
 ## Acoplamiento
 *¿Qué tabla es el "punto central" del sistema? ¿Qué pasaría si esa tabla sufre un cambio estructural profundo?*
 
-
+![Diagrama.](diagramas.png)
 
 Para este sistema el punto central seria la tabla de citas medicas ya que este tiene multiples dependencias que comunican tanto al paciente como al medico, sin esta tabla no existe una idea de negocio o estructura con un contexto practico.
 
