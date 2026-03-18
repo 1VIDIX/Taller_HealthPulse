@@ -1,0 +1,43 @@
+
+Table Pacientes {
+  paciente_id serial [primary key]
+  cedula varchar [unique]
+  nombre varchar
+  fecha_nacimiento date
+  tipo_sangre varchar
+}
+
+Table Personal_Medico {
+  id serial [primary key]
+  nombre varchar
+  tarjeta_p varchar [unique]
+  especialidad varchar
+}
+
+Table Citas_Medicas {
+  id serial [primary key]
+  paciente_id integer
+  medico_id integer
+  agenda timestamp
+  motivo varchar
+}
+
+Table Historial {
+  id serial [primary key]
+  cita_id integer
+  diagnostico varchar
+  tratamiento varchar
+}
+
+Table Signos_Vitales {
+  id serial [primary key]
+  paciente_id integer
+  frecuencia integer
+  temperatura numeric
+  fecha_hora timestamp
+}
+
+Ref paciente_cita: Pacientes.paciente_id < Citas_Medicas.paciente_id
+Ref medico_cita: Personal_Medico.id < Citas_Medicas.medico_id
+Ref paciente_signos : Pacientes.paciente_id < Signos_Vitales.id
+Ref cita_historial : Citas_Medicas.id < Historial.cita_id
